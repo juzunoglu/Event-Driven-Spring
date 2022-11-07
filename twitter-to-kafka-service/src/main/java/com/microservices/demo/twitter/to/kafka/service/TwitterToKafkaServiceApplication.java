@@ -9,6 +9,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import twitter4j.TwitterException;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
+
 @SpringBootApplication
 @Slf4j
 public class TwitterToKafkaServiceApplication implements CommandLineRunner {
@@ -27,7 +30,7 @@ public class TwitterToKafkaServiceApplication implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args) throws TwitterException {
+    public void run(String... args) throws TwitterException, IOException, URISyntaxException {
         log.info("App starts...");
         log.info(twitterToKafkaServiceConfigData.getTwitterKeywords().toString());
         streamRunner.start();
